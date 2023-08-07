@@ -1,0 +1,275 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map {
+    height: 100%;
+    width: 100vw;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+#map { 
+    height: 560px; 
+    position: relative;
+    z-index: 1;
+}
+.imagen{
+    display: flex;
+    width: 100%;
+    height: 394px;
+    margin-bottom: -349px;
+    
+}
+.miCabecera{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+    background: left 0% / 100% 100% repeat-x url(../images/pattern-bg-desktop.png);
+}
+.tituloAplicacion{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-family:'Rubik', sans-serif;
+    color: aliceblue;
+    font-weight: 700;
+    font-size: 20px;
+}
+.IpyButtom{
+    display: flex;
+    border-radius:10px;
+    height: 45px;
+    padding: 0;
+    justify-content: center;
+    width: 700px;
+    margin-bottom: 50px;
+}
+#inputIP{
+    background-color:azure;
+    width: 500px;
+    height: inherit;
+    border-radius: 10px 0px 0px 10px;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    color: hsl(0, 0%, 59%);
+    padding-left: 1em;
+}
+
+.descripcion{
+    display: flex;
+    flex: 3;
+    padding-top: 0;
+    padding-bottom: 10px;
+    margin-top: -25px;
+    margin-bottom: -70px;
+    position: relative;
+    z-index: 2;
+}
+
+.descripcionCajas {
+    position: relative;
+    display: flex;
+    background-color: aliceblue;
+    border: 1px solid black;
+    border-style: unset;
+    border-radius: 10px;
+    width: 1200px;
+    height: auto; /* set height to auto */
+    justify-content: flex-start;
+}
+.descripcionCajas > label{
+    display: flex;
+    flex-direction: column;
+    margin: 25px 10px 10px 40px;
+}
+#btnIP{
+    width: 55px;
+    height: 47px;
+    background-color: black;
+    color: azure;
+    font-size: 30px;
+    border-radius: 0px 10px 10px 0px;
+}
+.descripcionCajas #ip{
+    width: 200px;
+}
+.descripcionCajas .labelIP{
+    border-right: 2px solid rgba(75, 75, 77, 0.439);
+}
+.descripcionCajas #locationIP{
+    width: 300px;
+}
+.descripcionCajas .labelLocal{
+    border-right: 2px solid rgba(75, 75, 77, 0.439);
+}
+.descripcionCajas #timezone{
+    width: 250px;
+}
+.descripcionCajas .labelTime{
+    border-right: 2px solid rgba(75, 75, 77, 0.439);
+}
+.descripcionCajas #isp{
+    width:200px;
+}
+label{
+    color: hsl(0, 0%, 59%);
+    font-size: 19px;
+    font-family: sans-serif;
+    text-align: justify;  
+}
+label p{
+    color: rgb(8, 8, 8);
+    font-weight: 700;
+    padding-top: 10px;
+    font-family: 'Rubik', sans-serif;
+}
+/* Estilos para el elemento que oscurece el fondo */
+#overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9999;
+}
+/* Estilos para el circulo de carga */
+#loading{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #19048ecd;
+    animation: spin 1s linear infinite;
+    z-index: 10000;
+}
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+/* Aplicar fondo al mensaje de bienvenida */
+#overlay2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+/* cuadro de mensaje de bienvenida */
+#welcome-message-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #1111a9b5;
+    box-shadow: 0px 0px 100px rgba(16, 64, 222, 0.5);
+    z-index: 2;
+    width: auto;
+    height: 120px;
+    transition: transform 0.3s ease-in-out;
+}
+#welcome-message-box:hover {
+    transform: translate(-50%, -50%) scale(1.3);
+}
+#welcome-message-box p {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    top: 10px;
+    margin: revert;
+}
+#welcome-message-box button {
+    display: block;
+    margin: 0 auto;
+    border: none;
+    border-radius: 10%;
+    width: 60px;
+    height: 30px;
+    background-color: #d4d4dee7;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    box-shadow: 0px 0px 100px rgba(20, 25, 40, 0.5);
+}
+/* Estilos para pantallas con un ancho menor a 360px (como el Samsung Galaxy S8) */
+@media (max-width: 760px) {
+    .miCabecera {
+        font-size: 20px;
+        margin-top: -33px;
+        margin-bottom: -70px;
+    }
+    .tituloAplicacion h1 {
+        font-size: 24px;
+        margin-top: -5px;
+    }
+    .descripcion {
+        width: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .IpyButtom {
+        width: auto;
+        margin-top: -20px;
+    }
+    #inputIP {
+        width: auto;
+        font-size: 20px;
+        height: auto;
+    }
+    #btnIP {
+        width: 40px;
+        height: auto;
+        font-size: 20px;
+    }
+    .descripcionCajas {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width:auto;
+    }
+    .descripcionCajas .labelIP{
+        border-right: none;
+        padding-right: 2em;
+        margin-top: 22px;
+    }
+    .descripcionCajas .labelLocal{
+        border-right: none;
+        padding-right: 2em;
+        margin-top: auto;
+    }
+    .descripcionCajas .labelTime{
+        border-right: none;
+        padding-right: 2em;
+        margin-top: auto;
+    }
+    .descripcionCajas .labelISP{
+        padding-right: 2em;
+        margin-top: auto;
+    }
+    .labelIP,.labelLocal,.labelTime, .labelISP{
+        text-align: center;
+        font-size: 12px;
+        font-weight:600;
+    }
+    label > p{
+        font-size: 18px;
+        align-items: center;
+    }
+}
+
